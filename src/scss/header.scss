@@ -1,0 +1,37 @@
+#header {
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 5;
+	height: 80px;
+
+	background-color: black;
+	opacity: 0.775;
+
+	& > * {
+		display: inline-block;
+		margin-left: 5vw;
+		margin-top: 25px;
+		font-size: 18px;
+		font-weight: bold;
+	}
+
+	p {
+		color: white;
+		width: fit-content;
+	}
+
+	#links {
+		margin-left: 30vw;
+
+		a {
+			text-decoration: none;
+			color: white;
+			margin: 0 2vw;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+}

@@ -1,0 +1,55 @@
+html {
+	background-color: black;
+	color: white;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+#app {
+	#title-banner {
+		position: relative;
+
+		img {
+			width: 100%;
+		}
+
+		.title {
+			width: fit-content;
+			color: white;
+			margin: 0 auto;
+			margin-top: 2%;
+			margin-bottom: 4%;
+			font-size: 30px;
+		}
+	}
+
+	.sub-title {
+		font-size: 24px;
+		text-align: center;
+		margin-bottom: 2%;
+	}
+
+	#motivation {
+		.text-image-container {
+			display: flex;
+			justify-content: space-evenly;
+
+			img {
+				height: 300px;
+				width: 450px;
+			}
+
+			.text-section {
+				width: 40%;
+
+				p {
+					line-height: 1.5em;
+				}
+			}
+		}
+	}
+
+	.container {
+		width: 80%;
+		margin: 0 auto;
+	}
+}
