@@ -29,6 +29,7 @@ html {
 	}
 
 	#motivation {
+		margin-bottom: 10%;
 		.text-image-container {
 			display: flex;
 			justify-content: space-evenly;
@@ -43,6 +44,37 @@ html {
 
 				p {
 					line-height: 1.5em;
+					text-align: justify;
+				}
+			}
+		}
+	}
+
+	#experiment {
+		p {
+			line-height: 1.5em;
+		}
+		#icons-container {
+			display: flex;
+			justify-content: space-evenly;
+			flex-wrap: wrap;
+			margin-top: 5%;
+
+			.icon {
+				width: fit-content;
+				text-align: center;
+				.image-container {
+					box-sizing: border-box;
+					background-color: white;
+					width: fit-content;
+					border-radius: 100%;
+					padding: 30px;
+					margin: 0 auto;
+
+					img {
+						height: 145px;
+						width: 145px;
+					}
 				}
 			}
 		}

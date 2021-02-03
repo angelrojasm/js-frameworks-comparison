@@ -2,13 +2,20 @@ import React, { useEffect, useState } from 'react';
 import { Animated } from 'react-animated-css';
 import Header from './components/Header';
 import { useInView } from 'react-intersection-observer';
-import frameworks from './images/React-JS-VS-Angular-JS-Vs-Vue-JS.png';
-import frameworks2 from './images/frameworks2.jpg';
+import { frameworks, frameworks2, ComponentImg, PackageImg, RenderingImg } from './images/index';
 import './scss/app.scss';
 
 function App() {
-	const { ref, entry, inView } = useInView({
-		threshold: 0.5,
+	const [ref, inView] = useInView({
+		threshold: 0.75,
+	});
+	const [experimentText, textInView] = useInView({
+		threshold: 1,
+		triggerOnce: true,
+	});
+	const [experimentImages, imagesInView] = useInView({
+		threshold: 0.75,
+		triggerOnce: true,
 	});
 	const [canChange, setCanChange] = useState(false);
 
@@ -24,7 +31,7 @@ function App() {
 			<div id='title-banner'>
 				<img src={frameworks} alt='Javascript Frontend Frameworks' />
 				<Animated
-					animationIn='fadeInDown'
+					animationIn='fadeInUp'
 					animationInDelay={500}
 					animationInDuration={1000}
 					animationOut='fadeOut'
@@ -77,6 +84,54 @@ function App() {
 				</div>
 				<div id='experiment'>
 					<h3 className='sub-title'>Experiment</h3>
+					<Animated
+						animationIn='fadeInUp'
+						animationOut='fadeOut'
+						isVisible={canChange ? textInView : false}
+						animateOnMount={false}>
+						<div ref={experimentText}>
+							<p>
+								Curabitur dapibus mi velit, a rhoncus diam porttitor eu. Aliquam erat
+								volutpat. In id nunc nisi. Nullam at urna ipsum. Donec sit amet auctor
+								lacus, vel tristique quam. Vestibulum semper porta ligula, et lacinia augue
+								efficitur nec. Quisque convallis placerat purus, a accumsan risus feugiat
+								quis.
+							</p>
+							<p>
+								In these applications, I was able to utilize different aspects of frontend
+								development that are equal to all frameworks, as well as many directives and
+								patterns that are individual to each framework. This project is realtively
+								simple, but at the same time contains enough complexity as to showcase some
+								key aspects of development in each framework, such as:
+							</p>
+						</div>
+					</Animated>
+					<Animated
+						animationIn='fadeInUp'
+						animationOut='fadeOut'
+						isVisible={canChange ? imagesInView : false}
+						animateOnMount={false}>
+						<div id='icons-container' ref={experimentImages}>
+							<div className='icon'>
+								<div className='image-container'>
+									<img src={ComponentImg} alt='Component Interaction' />
+								</div>
+								<p>Component Interaction, Nesting and Data Sharing</p>
+							</div>
+							<div className='icon'>
+								<div className='image-container'>
+									<img src={PackageImg} alt='Dependency Management' />
+								</div>
+								<p>Dependency Management, Injection and Package Implementation</p>
+							</div>
+							<div className='icon'>
+								<div className='image-container'>
+									<img src={RenderingImg} alt='Rendering' />
+								</div>
+								<p>Component Re-rendering and Conditional Rendering</p>
+							</div>
+						</div>
+					</Animated>
 				</div>
 				<div id='projects'>
 					<h3 className='sub-title'>Projects</h3>
