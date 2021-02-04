@@ -25,11 +25,14 @@ html {
 	.sub-title {
 		font-size: 24px;
 		text-align: center;
-		margin-bottom: 2%;
+		margin-bottom: 5%;
+	}
+	.container {
+		width: 80%;
+		margin: 0 auto;
 	}
 
 	#motivation {
-		margin-bottom: 10%;
 		.text-image-container {
 			display: flex;
 			justify-content: space-evenly;
@@ -79,9 +82,19 @@ html {
 			}
 		}
 	}
+	#projects {
+		#projects-container {
+			width: 100%;
+			margin: 0 auto;
+			display: flex;
+			justify-content: space-evenly;
+			flex-wrap: wrap;
+		}
+	}
 
-	.container {
-		width: 80%;
-		margin: 0 auto;
+	#motivation,
+	#experiment,
+	#projects {
+		margin-bottom: 10%;
 	}
 }

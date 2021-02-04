@@ -1,8 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { Animated } from 'react-animated-css';
 import Header from './components/Header';
+import ProjectInfo from './components/ProjectInfo';
 import { useInView } from 'react-intersection-observer';
-import { frameworks, frameworks2, ComponentImg, PackageImg, RenderingImg } from './images/index';
+import {
+	frameworks,
+	frameworks2,
+	ComponentImg,
+	PackageImg,
+	RenderingImg,
+	AngularApp,
+	ReactApp,
+	VueApp,
+} from './images/index';
 import './scss/app.scss';
 
 function App() {
@@ -15,6 +25,10 @@ function App() {
 	});
 	const [experimentImages, imagesInView] = useInView({
 		threshold: 0.75,
+		triggerOnce: true,
+	});
+	const [projectsRef, projectsInView] = useInView({
+		threshold: 0.35,
 		triggerOnce: true,
 	});
 	const [canChange, setCanChange] = useState(false);
@@ -133,9 +147,45 @@ function App() {
 						</div>
 					</Animated>
 				</div>
-				<div id='projects'>
-					<h3 className='sub-title'>Projects</h3>
-				</div>
+			</div>
+			<div id='projects'>
+				<h3 className='sub-title'>Projects</h3>
+
+				<Animated
+					animationIn='fadeInUp'
+					animationOut='fadeOut'
+					isVisible={canChange ? projectsInView : false}
+					animateOnMount={false}>
+					<div id='projects-container' ref={projectsRef}>
+						<ProjectInfo
+							language='Vue.js'
+							languageLogo={VueApp}
+							frameworkAspects={['lorem', 'ipsum', 'dolor']}
+							links={[
+								'https://github.com/angelrojasm/vue-todo',
+								'https://zealous-mirzakhani-2059dc.netlify.app',
+							]}
+						/>
+						<ProjectInfo
+							language='Angular.js'
+							languageLogo={AngularApp}
+							frameworkAspects={['lorem', 'ipsum', 'dolor']}
+							links={[
+								'https://github.com/angelrojasm/angular-todo',
+								'https://angelrojasm.github.io/angular-todo/',
+							]}
+						/>
+						<ProjectInfo
+							language='React.js'
+							languageLogo={ReactApp}
+							frameworkAspects={['lorem', 'ipsum', 'dolor']}
+							links={[
+								'https://github.com/angelrojasm/react-todo',
+								'https://angelrojasm.github.io/react-todo/',
+							]}
+						/>
+					</div>
+				</Animated>
 			</div>
 		</div>
 	);

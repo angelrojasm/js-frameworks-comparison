@@ -1,0 +1,41 @@
+#project-info {
+	& > * {
+		line-height: 1.5em;
+	}
+	border: 1px solid silver;
+	img {
+		height: 275px;
+		width: 425px;
+	}
+	#body {
+		.title {
+			text-align: center;
+			margin-bottom: 10%;
+		}
+
+		#aspects {
+			margin-left: 10%;
+			margin-bottom: 10%;
+			.aspect {
+				margin: 2% 0;
+			}
+		}
+		#links {
+			margin: 0 auto;
+			margin-bottom: 3%;
+			width: 95%;
+			display: flex;
+			justify-content: space-between;
+
+			a {
+				text-decoration: none;
+				color: #0080ff;
+				font-weight: bold;
+
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+}
