@@ -18,6 +18,7 @@ import './scss/app.scss';
 function App() {
 	const [ref, inView] = useInView({
 		threshold: 0.75,
+		triggerOnce: true,
 	});
 	const [experimentText, textInView] = useInView({
 		threshold: 1,
@@ -28,7 +29,7 @@ function App() {
 		triggerOnce: true,
 	});
 	const [projectsRef, projectsInView] = useInView({
-		threshold: 0.35,
+		threshold: 0.25,
 		triggerOnce: true,
 	});
 	const [canChange, setCanChange] = useState(false);
@@ -36,8 +37,10 @@ function App() {
 	useEffect(() => {
 		setTimeout(() => {
 			setCanChange(true);
-		}, 100);
+		}, 2000);
 	}, []);
+
+	useEffect(() => {});
 
 	return (
 		<div id='app'>
@@ -59,37 +62,35 @@ function App() {
 					<div className='text-image-container'>
 						<div className='text-section'>
 							<Animated
-								animationIn='slideInLeft'
-								animationOut='slideInLeft'
+								animationIn='fadeInUp'
+								animationOut='fadeOut'
 								isVisible={canChange ? inView : false}
 								animateOnMount={false}>
 								<p>
-									Curabitur dapibus mi velit, a rhoncus diam porttitor eu. Aliquam erat
-									volutpat. In id nunc nisi. Nullam at urna ipsum. Donec sit amet auctor
-									lacus, vel tristique quam. Vestibulum semper porta ligula, et lacinia
-									augue efficitur nec. Quisque convallis placerat purus, a accumsan risus
-									feugiat quis.
+									After about a year and a half of working in frontend development with
+									React, I have seen various functionalities and aspects that have made me
+									question wether or not they could be done in different ways, and have
+									incited my curiosity torwards different approaches to frontend
+									development.
 								</p>
 							</Animated>
 							<Animated
-								animationIn='slideInLeft'
-								animationOut='slideInLeft'
+								animationIn='fadeInUp'
+								animationOut='fadeOut'
 								isVisible={canChange ? inView : false}
 								animateOnMount={false}>
 								<p>
-									Aenean diam nisi, vulputate vitae mi aliquet, euismod blandit quam.
-									Aliquam erat volutpat. Donec quis scelerisque ex, et commodo mauris. Cras
-									convallis dapibus lacus, sed condimentum dolor aliquet id. Aenean ac
-									auctor ex. Nullam id aliquam neque. Etiam pellentesque eros justo, ac
-									volutpat metus elementum sed. Praesent ultrices pellentesque purus, et
-									lacinia lectus dapibus at. Duis consectetur neque neque, eget sagittis
-									arcu placerat non. Vivamus sit amet vulputate odio, nec dictum nisl.
+									Seeing as how React is only one of many frameworks (or libraries) used to
+									tackle frontend development in javascript, and how different frameworks
+									have both emerging communities and a rising surge of professional
+									implementations, I decided to compare and contrast three of the main
+									frameworks of our current time.
 								</p>
 							</Animated>
 						</div>
 						<Animated
-							animationIn='slideInRight'
-							animationOut='slideInRight'
+							animationIn='fadeInUp'
+							animationOut='fadeOut'
 							isVisible={canChange ? inView : false}
 							animateOnMount={false}>
 							<img src={frameworks2} alt='Frameworks' />
@@ -105,11 +106,12 @@ function App() {
 						animateOnMount={false}>
 						<div ref={experimentText}>
 							<p>
-								Curabitur dapibus mi velit, a rhoncus diam porttitor eu. Aliquam erat
-								volutpat. In id nunc nisi. Nullam at urna ipsum. Donec sit amet auctor
-								lacus, vel tristique quam. Vestibulum semper porta ligula, et lacinia augue
-								efficitur nec. Quisque convallis placerat purus, a accumsan risus feugiat
-								quis.
+								In order to be able to compare and get some firsthand experience on working
+								with different frameworks, I decided to create a simple todo task management
+								application in each of them. This way, I could accurately compare my
+								experiences and the development process in each of the available frameworks.
+								The application allows a user to type in a task in order to display it to a
+								list, as well as check out the task as completed and delete it altogether.
 							</p>
 							<p>
 								In these applications, I was able to utilize different aspects of frontend
@@ -134,7 +136,11 @@ function App() {
 							</div>
 							<div className='icon'>
 								<div className='image-container'>
-									<img src={PackageImg} alt='Dependency Management' />
+									<img
+										style={{ borderRadius: '100%' }}
+										src={PackageImg}
+										alt='Dependency Management'
+									/>
 								</div>
 								<p>Dependency Management, Injection and Package Implementation</p>
 							</div>
@@ -142,7 +148,7 @@ function App() {
 								<div className='image-container'>
 									<img src={RenderingImg} alt='Rendering' />
 								</div>
-								<p>Component Re-rendering and Conditional Rendering</p>
+								<p>Rerendering, Conditional Rendering and Lifecycle Methods</p>
 							</div>
 						</div>
 					</Animated>
@@ -160,7 +166,13 @@ function App() {
 						<ProjectInfo
 							language='Vue.js'
 							languageLogo={VueApp}
-							frameworkAspects={['lorem', 'ipsum', 'dolor']}
+							frameworkAspects={[
+								'Scoped Styles',
+								'Third party library implementation',
+								'Directives: v-bind, v-if, v-model, v-for',
+								'Component prop sharing',
+								'Event Handling: v-on',
+							]}
 							links={[
 								'https://github.com/angelrojasm/vue-todo',
 								'https://zealous-mirzakhani-2059dc.netlify.app',
@@ -169,7 +181,14 @@ function App() {
 						<ProjectInfo
 							language='Angular.js'
 							languageLogo={AngularApp}
-							frameworkAspects={['lorem', 'ipsum', 'dolor']}
+							frameworkAspects={[
+								'Typescript Classes',
+								'Third party library implementation',
+								'Directives: ngModel, ngIf, ngFor, ngClass',
+								'Services and Dependency Injection',
+								'Data Sharing with @Input()',
+								'Event Emitting with @Output()',
+							]}
 							links={[
 								'https://github.com/angelrojasm/angular-todo',
 								'https://angelrojasm.github.io/angular-todo/',
@@ -178,7 +197,13 @@ function App() {
 						<ProjectInfo
 							language='React.js'
 							languageLogo={ReactApp}
-							frameworkAspects={['lorem', 'ipsum', 'dolor']}
+							frameworkAspects={[
+								'JSX',
+								'Function Components',
+								'React Hooks (useState, useEffect)',
+								'Third party library implementation',
+								'Prop Sharing and Event Handling',
+							]}
 							links={[
 								'https://github.com/angelrojasm/react-todo',
 								'https://angelrojasm.github.io/react-todo/',
@@ -186,6 +211,9 @@ function App() {
 						/>
 					</div>
 				</Animated>
+			</div>
+			<div id='footer'>
+				<p>Authored By: Angel Rojas</p>
 			</div>
 		</div>
 	);

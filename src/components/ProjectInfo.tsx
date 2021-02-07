@@ -23,7 +23,8 @@ const ProjectInfo = ({ language, languageLogo, frameworkAspects, links }: Projec
 		<div id='project-info'>
 			<img src={languageLogo} alt='Language Logo' />
 			<div id='body'>
-				<h3 className='title'>This Implementation Features:</h3>
+				<h3 className='title'>{language} Todo</h3>
+				<h4 className='title'>This Implementation Features:</h4>
 				<div id='aspects'>{renderAspects()}</div>
 				<div id='links'>
 					<a href={links[0]} target='_blank' rel='noreferrer' className='link'>

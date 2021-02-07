@@ -2,6 +2,7 @@ html {
 	background-color: black;
 	color: white;
 	font-family: Arial, Helvetica, sans-serif;
+	overflow-x: hidden;
 }
 
 #app {
@@ -14,7 +15,6 @@ html {
 
 		.title {
 			width: fit-content;
-			color: white;
 			margin: 0 auto;
 			margin-top: 2%;
 			margin-bottom: 4%;
@@ -56,6 +56,7 @@ html {
 	#experiment {
 		p {
 			line-height: 1.5em;
+			text-align: justify;
 		}
 		#icons-container {
 			display: flex;
@@ -64,8 +65,13 @@ html {
 			margin-top: 5%;
 
 			.icon {
-				width: fit-content;
+				width: 30%;
 				text-align: center;
+
+				p {
+					font-size: 0.925em;
+				}
+
 				.image-container {
 					box-sizing: border-box;
 					background-color: white;
@@ -96,5 +102,108 @@ html {
 	#experiment,
 	#projects {
 		margin-bottom: 10%;
+	}
+
+	#footer {
+		width: 95%;
+		display: flex;
+		justify-content: flex-end;
+	}
+}
+
+@media only screen and (max-width: 1100px) {
+	#app {
+		.container {
+			#motivation {
+				.text-image-container {
+					flex-direction: column-reverse;
+					align-items: center;
+					img {
+						height: 45vw;
+						width: 60vw;
+						margin-bottom: 5%;
+					}
+
+					.text-section {
+						width: 100%;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 900px) {
+	#app {
+		#title-banner {
+			.title {
+				font-size: 24px;
+			}
+		}
+		.sub-title {
+			font-size: 20px;
+		}
+
+		.container {
+			#experiment {
+				#icons-container {
+					margin-top: 10%;
+					.icon {
+						p {
+							font-size: 0.875em;
+							white-space: wrap;
+							text-align: center;
+						}
+
+						.image-container {
+							padding: 22px;
+							img {
+								height: 100px;
+								width: 100px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 550px) {
+	#app {
+		#title-banner {
+			.title {
+				font-size: 4vw;
+			}
+		}
+		.sub-title {
+			font-size: 18px;
+		}
+
+		.container {
+			width: 90%;
+
+			#experiment {
+				#icons-container {
+					flex-direction: column;
+					align-items: center;
+
+					.icon {
+						width: 100%;
+						p {
+							font-size: 1em;
+						}
+
+						.image-container {
+							padding: 30px;
+							img {
+								height: 140px;
+								width: 140px;
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 }

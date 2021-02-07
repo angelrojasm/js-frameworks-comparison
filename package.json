@@ -1,6 +1,5 @@
 {
   "name": "js-frameworks-comparison",
-  "homepage": "http://angelrojasm.github.io/js-frameworks-comparison",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

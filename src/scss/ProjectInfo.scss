@@ -1,4 +1,5 @@
 #project-info {
+	position: relative;
 	& > * {
 		line-height: 1.5em;
 	}
@@ -15,17 +16,18 @@
 
 		#aspects {
 			margin-left: 10%;
-			margin-bottom: 10%;
+			margin-bottom: 15%;
 			.aspect {
 				margin: 2% 0;
 			}
 		}
 		#links {
-			margin: 0 auto;
-			margin-bottom: 3%;
+			position: absolute;
 			width: 95%;
 			display: flex;
 			justify-content: space-between;
+			bottom: 1%;
+			left: 2%;
 
 			a {
 				text-decoration: none;
