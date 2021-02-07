@@ -1,4 +1,5 @@
 #project-info {
+	margin-bottom: 5%;
 	position: relative;
 	& > * {
 		line-height: 1.5em;
@@ -38,6 +39,15 @@
 					text-decoration: underline;
 				}
 			}
+		}
+	}
+}
+
+@media only screen and (max-width: 550px) {
+	#project-info {
+		img {
+			width: 95vw;
+			height: 65vw;
 		}
 	}
 }

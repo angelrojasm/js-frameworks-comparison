@@ -29,7 +29,7 @@ function App() {
 		triggerOnce: true,
 	});
 	const [projectsRef, projectsInView] = useInView({
-		threshold: 0.25,
+		threshold: 0.15,
 		triggerOnce: true,
 	});
 	const [canChange, setCanChange] = useState(false);
@@ -37,7 +37,7 @@ function App() {
 	useEffect(() => {
 		setTimeout(() => {
 			setCanChange(true);
-		}, 2000);
+		}, 1000);
 	}, []);
 
 	useEffect(() => {});
