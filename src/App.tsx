@@ -32,6 +32,10 @@ function App() {
 		threshold: 0.15,
 		triggerOnce: true,
 	});
+	const [resultsRef, resultsInView] = useInView({
+		threshold: 0.75,
+		triggerOnce: true,
+	});
 	const [canChange, setCanChange] = useState(false);
 
 	useEffect(() => {
@@ -212,6 +216,48 @@ function App() {
 					</div>
 				</Animated>
 			</div>
+			<div className='container'>
+				<div id='results'>
+					<h3 className='sub-title'>Results</h3>
+					<Animated
+						isVisible={canChange ? resultsInView : false}
+						animationOut='fadeOut'
+						animationIn='fadeInUp'
+						animateOnMount={false}>
+						<p ref={resultsRef}>
+							After working on a project on all three frameworks, i was able to gain
+							experience in different approaches to frontend development and understand some
+							of the design choices on each framework. Working with all of the different
+							technologies has helped me broaden my understanding on web development as a
+							whole, and understand some of the advantages and disadvantages the frameworks
+							hold.
+						</p>
+						<p>
+							I can say that in my opinion, both Vue.js and React.js allowed me to have a
+							smoother development process, with easier procedures for prop sharing and
+							faster rendering due to using the Virtual DOM. I had an easier time managing
+							state with React.js thanks to React Hooks. Vue.js, However, allowed me to have
+							an easier time in the overall design of the components thanks to being able to
+							work on all three aspects of the component (Template, Scripts and Styles) in
+							the same file, as well as allowing me to use scoped styles.
+						</p>
+						<p>
+							When working with Angular.js, despite it being a tad confusing due to the
+							amount of different files that work together in the general module, I could
+							clearly see that it was this framework was way more organized than the other
+							two. All parts of a component are already set to integrate together since the
+							moment the component is created, and the possibility of injecting separate
+							services to components at will is very useful.
+						</p>
+						<p>
+							Personally, I would prefer to continue working with React in the future, but
+							after taking on this little experiment of sorts, I would not be opposed to
+							working with Vue.js or Angular.js if the opportunity were to arise.
+						</p>
+					</Animated>
+				</div>
+			</div>
+
 			<div id='footer'>
 				<p>Authored By: Angel Rojas</p>
 			</div>
